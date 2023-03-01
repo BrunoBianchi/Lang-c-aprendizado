@@ -1,0 +1,1 @@
+int matriz[i][j];

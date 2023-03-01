@@ -14,6 +14,7 @@ int escolha() {
 // Versao Single Player do jogo
 void Random() {
     //Pegando um numero aleatorio
+    srand((unsigned int)time(NULL));
     int number = rand() % 101;
     int resposta = 0;
     int tries = 0;
@@ -26,7 +27,7 @@ void Random() {
         printf("\033[2J\033[H");
         //Aumentar o numero de tentativas
         tries++;
-        if(tries >=5) {
+        if((tries % 5) == 0) {
             //verificar se o numero par
             if((number % 2)  == 0 ) {
                 printf("\033[2J\033[H");
@@ -42,7 +43,7 @@ void Random() {
             printf("\nO numero e\' maior. Tente Novamente! \n");
         }else if(resposta > number) {
             printf("\nO numero e\' menor. Tente Novamente \n");
-        }else printf("Parabens, voce acertou %d em %d tentativas! \n",number,tries);
+        }else printf("Parabens, voce acertou seu numero (%d) em %d tentativas! \n",number,tries);
     //Enquanto a resposta for diferente do numero
     }while(resposta != number);
 
@@ -68,12 +69,10 @@ void Escolha() {
             } 
         }
         if(resposta < number) {
-            printf("\033[2J\033[H");
             printf("\nO numero e\' maior. Tente Novamente! \n");
         }else if(resposta > number) {
-            printf("\033[2J\033[H");
             printf("\nO numero e\' menor. Tente Novamente \n");
-        }else printf("Parabens, voce acertou %d em %d tentativas! \n",number,tries);
+        }else printf("Parabens, voce acertou seu numero (%d) em %d tentativas! \n",number,tries);
     }while(resposta != number);
 
 }
